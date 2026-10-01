@@ -42,5 +42,12 @@ if (require.main === module) {
   app.listen(port, '0.0.0.0', () =>
     console.log(`Application ${environment} running on port ${port}`),
   );
+  app.get('/api/info', (req, res) => {
+    res.status(200).json({
+      name: 'DevSecOps Demo',
+      version: version,
+      environment: environment,
+    });
+  });
 }
 module.exports = app;
